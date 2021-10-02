@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./paginas/login/login.module').then( m => m.LoginPageModule)
+  },  {
+    path: 'recuperar',
+    loadChildren: () => import('./paginas/recuperar/recuperar.module').then( m => m.RecuperarPageModule)
   },
+
 
 
 ];

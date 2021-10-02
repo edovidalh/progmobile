@@ -1,19 +1,57 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title class="ion-padding-top ion-text-center">TeLlevoAPP</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button shape="block" (click)="limpiar()">
+        <ion-icon name="refresh-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <div>
-  <ion-button routerLink="/login" >iniciar Sesión</ion-button>
-  </div>
- 
+<ion-content [fullscreen]="true" class="ion-padding-horizontal">
+  <ion-title>
+    <ion-label>
+      <p *ngIf="Usuario">Usuario: {{usuario}}</p>
+    </ion-label>
+  </ion-title>
+
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="stacked">Nombre</ion-label>
+    <ion-input type="text" [(ngModel)]="data.nombre"></ion-input>
+  </ion-item>
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="stacked">Apellido</ion-label>
+    <ion-input type="text" [(ngModel)]="data.apellido"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked" class="ion-padding-bottom">Conductor</ion-label>
+    <ion-select placeholder="Seleccione Conductor" [(ngModel)]="viaje.Conductor">
+      <ion-select-option *ngFor="let niv of niveles" [value]="niv.name">{{niv.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="stacked">Fecha de viaje</ion-label>
+    <ion-datetime placeholder="Seleccione la fecha de viaje" displayFormat="DDDD DD MMM" [(ngModel)]="viaje.fecha"></ion-datetime>
+  </ion-item>
+
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="stacked">Hora de viaje</ion-label>
+    <ion-datetime placeholder="Seleccione la hora de viaje" displayFormat="HH:mm A" [(ngModel)]="viaje.hora"></ion-datetime>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-button shape="block" (click)="planificar()">Planificar viaje</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  
 </ion-content>
