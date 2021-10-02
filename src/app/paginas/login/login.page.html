@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Iniciar Sesión</ion-title>
+    <ion-buttons slot="end">
+      <ion-button shape="block" href="">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <div>
+    <h2 >Ingrese su Usuario y Contraseña</h2>
+    <ion-item>
+      <ion-label position="floating">Usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="login.Usuario"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="login.Password"></ion-input>
+    </ion-item>
+    <section>
+    <ion-button shape="block"  (click)="ingresar()">Ingresar</ion-button>
+    </section>  
+    
+
+    <section>
+      <ion-button shape="block" color="warning" href="/recuperar" >¿Olvido la constraseña?</ion-button>
+    </section>
+  </div>
+
+
+</ion-content>
